@@ -13,7 +13,6 @@ class ManageTimerController extends Controller
     {
         $timers = Timer::active()->get();
 
-
         return view('manage.timer.list', compact('timers'));
     }
 
@@ -22,7 +21,7 @@ class ManageTimerController extends Controller
         return view('manage.timer.create');
     }
 
-    function insert(Request $request)
+    function deactivateAllTimers()
     {
         $timers = Timer::active()->get();
         foreach ($timers as $timer)
@@ -32,6 +31,11 @@ class ManageTimerController extends Controller
 
             Log::info('Timer inactivated by creation of new timer', ['timer' => $timer]);
         }
+    }
+
+    function insert(Request $request)
+    {
+        $this->deactivateAllTimers();
 
         $timer = new Timer();
         $timer->start = Carbon::now();
@@ -75,7 +79,6 @@ class ManageTimerController extends Controller
             $timer->save();
             Log::info('Timer deactivated');
             return redirect('/manage');
-
         }
 
         elseif ($timer && $this->validateRequest($request))
@@ -87,7 +90,6 @@ class ManageTimerController extends Controller
             $timer->label = $request->label;
             Log::info('Timer updated', ['timer' => $timer]);
             $timer->save();
-
         }
 
         return redirect('/manage');
