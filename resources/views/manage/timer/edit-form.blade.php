@@ -8,40 +8,31 @@
 
     <p><b>Start Time</b></p>
 
-    <div>
-        <label for="hour">
-            Hour
-        </label>
-        @include('helper.select', [
-            'options' => $hourSelectOptions,
-            'selectName' => 'hour',
-            'selectId' => 'hour',
-            'selectedValue' => $timer->start->format("h")])
-    </div>
-
-    <div>
-        <label for="minute">
-            Minute
-        </label>
-        @include('helper.select', [
+    <div class="row mb-4">
+        <div class="col-auto">
+            @include('helper.select', [
+                'options' => $hourSelectOptions,
+                'selectName' => 'hour',
+                'selectId' => 'hour',
+                'selectedValue' => $timer->start->format("H")])
+        </div>
+        <div class="col-auto">:</div>
+        <div class="col-auto">
+            @include('helper.select', [
             'options' => $minuteSelectOptions,
             'selectName' => 'minute',
             'selectId' => 'minute',
             'selectedValue' => $timer->start->format("i")])
-    </div>
-
-    <div>
-        <label for="second">
-            Second
-        </label>
-        @include('helper.select', [
+        </div>
+        <div class="col-auto">:</div>
+        <div class="col-auto">
+            @include('helper.select', [
             'options' => $secondSelectOptions,
             'selectName' => 'second',
             'selectId' => 'second',
             'selectedValue' => $timer->start->format("s")])
+        </div>
     </div>
-
-    <p></p>
 
     <div class="mb-3">
         <label for="hour">
@@ -67,10 +58,8 @@
             var btn = $(this);
             if (confirm("Are you sure?")) {
                 $('#status').val("inactive");
+                $('#form').submit();
             }
-            $('#form').submit();
         });
-
-        console.log('here');
     });
 </script>
