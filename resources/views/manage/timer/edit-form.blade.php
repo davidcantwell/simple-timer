@@ -45,6 +45,7 @@
         <input type="submit" class="btn btn-primary" value="update">
         <input type="hidden" id="status" name="status" value="{{ $timer->status }}">
         <input type="button" class="btn btn-danger" id="deactivate" name="deactivate" value="deactivate">
+        <a href="{{ url('/manage') }}" class="btn ">cancel</a>
     </div>
 
     <input type="hidden" name="id" value="{{ $timer->id }}">
