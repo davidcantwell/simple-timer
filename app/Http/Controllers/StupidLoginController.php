@@ -20,7 +20,7 @@ class StupidLoginController extends Controller
         if (in_array($request->pin, $pins)) {
             $request->session()->put('stupidAuth', 'OK');
             $request->session()->put('stupidAuthStart', Carbon::now());
-            return redirect('/');
+            return redirect('/manage');
         } else {
             return redirect(url('/login'));
         }

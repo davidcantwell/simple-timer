@@ -8,13 +8,14 @@
 
         <div class="mb-4">
             <label for="label">Label</label>
-            <input type="text" name="label" class="form-control">
+            <input type="text" name="label" class="form-control" required>
         </div>
 
         <div class="mb-4">
-            <label for="duration">Duration</label>
+            <label for="duration">Duration in Minutes</label>
 
-            <input type="number" name="duration" class="form-control">
+            <input type="number" name="duration" class="form-control" required>
+            <p><small>3 hours is 180 minutes</small></p>
         </div>
 
         <div class="mb-4">
