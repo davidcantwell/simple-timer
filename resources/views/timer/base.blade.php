@@ -3,7 +3,7 @@
 <head>
     <title>
         @if (isset($timer))
-            Timer: {{ $timer->label }}
+            {{ $timer->getTimeElements()['h1'] . $timer->getTimeElements()['h2'] . ':' . $timer->getTimeElements()['m1'] . $timer->getTimeElements()['m2'] . ':' . $timer->getTimeElements()['s1'] . $timer->getTimeElements()['s2'] }}
         @else
             No active timer
         @endif

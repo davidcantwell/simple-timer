@@ -71,6 +71,29 @@ var Countdown = {
                 that.checkHour(that.values.seconds, $sec_1, $sec_2);
 
                 --that.total_seconds;
+
+                if (that.values.hours < 10) {
+                    var hourStr = '0' + that.values.hours;
+                }
+                else {
+                    var hourStr = that.values.hours;
+                }
+
+                if (that.values.minutes < 10) {
+                    var minStr = '0' + that.values.minutes;
+                }
+                else {
+                    var minStr = that.values.minutes;
+                }
+
+                if (that.values.seconds < 10) {
+                    var secStr = '0' + that.values.seconds;
+                }
+                else {
+                    var secStr = that.values.seconds;
+                }
+
+                document.title = hourStr + ':' + minStr + ':' + secStr;
             }
             else {
                 clearInterval(that.countdown_interval);
