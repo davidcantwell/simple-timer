@@ -38,7 +38,7 @@
         <label for="hour">
             <b>Duration in minutes</b>
         </label>
-        <input type="text" name="duration" class="form-control" value="{{ $timer->duration }}">
+        <input type="number" name="duration" class="form-control" value="{{ $timer->duration }}">
     </div>
 
     <div>
